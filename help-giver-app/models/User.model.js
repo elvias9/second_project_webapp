@@ -1,12 +1,34 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
+// Creating the User
 const userSchema = new Schema({
   username: {
     type: String,
     unique: true
   },
-  password: String
+  password: String,
+  email: String,
+  googleID: String,
+  firstName: String,
+  lastName: String,
+  imagePath: String,
+  imageName: String,
+  language: String,
+  location: String, 
+  role: {
+    type: String,
+     enum: ['user', 'giver', 'seeker'],
+     default: 'user'
+   }
+  //  reviews: [
+  //   {
+  //     user: {
+  //       type: String
+        
+  //     },
+  //     comments: String
+  //   }
+  //  ]
 });
 
 const User = model("User", userSchema);
